@@ -21,31 +21,39 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">What I Do</h2>
-
-        {loading ? (
-          <p className="text-center text-gray-600">Loading services...</p>
-        ) : services.length === 0 ? (
-          <p className="text-center text-gray-600">No services available yet.</p>
-        ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition"
-              >
-                {service.icon && (
-                  <div className="text-5xl mb-4">{service.icon}</div>
-                )}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        )}
+    <section className="aboutme container" id="services">
+      <div className="header-info">
+        <h4>ABOUT ME</h4>
+        <p>What I can do for your business and projects. I offer professional development and maintenance services tailored to your needs.</p>
+        <h6>EXPLORE</h6>
+        <img src="/separator.png" alt="separator" />
       </div>
+
+      {loading ? (
+        <p className="text-center">Loading services...</p>
+      ) : services.length === 0 ? (
+        <div className="grid-about">
+          <div className="columns">
+            <h6>DEVELOPMENT</h6>
+            <p>I can design the site based on your needs and suggestions. I can also design the site from scratch and consult you during the job.</p>
+          </div>
+          <div className="columns">
+            <h6>MAINTENANCE</h6>
+            <p>I can design the site based on your needs and suggestions. I can also design the site from scratch and consult you during the job.</p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid-about">
+          {services.map((service) => (
+            <div key={service.id} className="columns">
+              <h6>{service.title}</h6>
+              <p>{service.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+      
+      <img src="/separator.png" alt="separator" />
     </section>
   );
 }

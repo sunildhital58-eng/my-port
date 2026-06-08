@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useAdminStore } from './store/adminStore';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import BerriesSection from './components/BerriesSection';
 import Services from './components/Services';
 import PortfolioProjects from './components/PortfolioProjects';
 import Blogs from './components/Blogs';
@@ -26,6 +27,7 @@ export default function App() {
             <>
               <Header />
               <Hero />
+              <BerriesSection />
               <Services />
               <PortfolioProjects />
               <Blogs />
